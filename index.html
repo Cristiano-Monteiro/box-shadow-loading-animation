@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Box Shadow Loading Animation</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+
+    :root{
+      font-size: 62.5%;
+
+      --white: #FFF;
+      --color-primary: #63c0d4;
+    }
+
+    body{
+      font-size: 1.6rem;
+      width: 100vw;
+      height: 100vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container{
+      width: 90%;
+      max-width: 30rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .loading{
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+
+    .item1, .item2, .item3{
+      width: 3.5rem;
+      height: 8rem;
+      background-color: var(--white);
+      border-radius: .5rem;
+      opacity: 0;
+      animation: loadingAnimation 1.4s linear infinite;
+    }
+
+    .item1{
+      animation-delay: 0s;
+    }
+
+    .item2{
+      animation-delay: .3s;
+    }
+
+    .item3{
+      animation-delay: .5s;
+    }
+
+    @keyframes loadingAnimation{
+      0%{
+        box-shadow: 0 0 0 rgba(0,0,0,0);
+        transform: scale(1) translateX(-1.5rem);
+        opacity: 0;
+      }
+      50%{
+        box-shadow: 0 5px 1.5rem rgba(0,0,0,.4);
+        transform: scale(1.2);
+        opacity: 1;
+      }
+      100%{
+        box-shadow: 0 0 0 rgba(0,0,0,0);
+        transform: scale(1) translateX(1.5rem);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="loading">
+      <div class="item1"></div>
+      <div class="item2"></div>
+      <div class="item3"></div>
+    </div>
+  </div>
+</body>
+</html>
